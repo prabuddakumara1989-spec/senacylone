@@ -58,25 +58,24 @@
             letter-spacing: 0.5px;
         }
 
-        /* Subtitle Container - Centered on all screens with terminal-style typing */
+        /* Subtitle Container - Responsive with text wrapping */
         .subtitle-container {
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 8px;
             min-height: 45px;
             width: 100%;
+            max-width: 100%;
         }
 
-        /* Typing Animation Keyframes - Left to Right */
+        /* Typing Animation Keyframes - Progressive character reveal */
         @keyframes typing {
-            from {
-                max-width: 0;
-                clip-path: inset(0 100% 0 0);
+            0% {
+                width: 0;
             }
-            to {
-                max-width: 100%;
-                clip-path: inset(0 0 0 0);
+            100% {
+                width: 100%;
             }
         }
 
@@ -99,15 +98,17 @@
                 0 0 20px rgba(0, 242, 254, 0.3),
                 0 0 30px rgba(0, 242, 254, 0.2);
             border-right: 3px solid var(--accent-color);
-            white-space: nowrap;
             overflow: hidden;
-            display: inline-block;
-            text-align: left;
-            max-width: 0;
+            display: block;
+            text-align: center;
+            width: 0;
+            white-space: normal;
+            word-wrap: break-word;
             animation: 
                 typing 3.5s steps(49, end) forwards,
                 blink 0.7s infinite;
             /* 49 characters in "Operations, Security & Technical Systems Specialist" */
+            line-height: 1.4;
         }
 
         header .subtitle.animated {
@@ -317,7 +318,15 @@
             margin-top: 20px;
         }
 
-        /* Mobile Responsive - Ensure subtitle stays centered */
+        /* Desktop - Single line or natural wrap */
+        @media (min-width: 769px) {
+            header .subtitle {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Tablet - Allow natural wrapping */
         @media (max-width: 768px) {
             header {
                 padding: 40px 15px;
@@ -328,12 +337,14 @@
             }
 
             .subtitle-container {
-                min-height: 50px;
+                min-height: auto;
                 margin-bottom: 12px;
             }
 
             header .subtitle {
                 font-size: 1.1em;
+                max-width: 90%;
+                margin: 0 auto;
             }
 
             section {
@@ -345,6 +356,7 @@
             }
         }
 
+        /* Mobile - Multiple lines with natural wrapping */
         @media (max-width: 480px) {
             .container {
                 padding: 20px 15px;
@@ -362,13 +374,17 @@
             }
 
             .subtitle-container {
-                min-height: 60px;
+                min-height: auto;
                 margin-bottom: 10px;
+                padding: 0 5px;
             }
 
             header .subtitle {
                 font-size: 0.95em;
                 border-right-width: 2px;
+                max-width: 100%;
+                padding: 0 5px;
+                text-align: center;
             }
 
             .profile-img {
