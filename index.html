@@ -58,23 +58,25 @@
             letter-spacing: 0.5px;
         }
 
-        /* Subtitle Container - Centered on all screens */
+        /* Subtitle Container - Centered on all screens with terminal-style typing */
         .subtitle-container {
             display: flex;
             justify-content: center;
             align-items: center;
             margin-bottom: 8px;
             min-height: 45px;
-            flex-wrap: wrap;
+            width: 100%;
         }
 
-        /* Typing Animation Keyframes */
+        /* Typing Animation Keyframes - Left to Right */
         @keyframes typing {
             from {
-                width: 0;
+                max-width: 0;
+                clip-path: inset(0 100% 0 0);
             }
             to {
-                width: 100%;
+                max-width: 100%;
+                clip-path: inset(0 0 0 0);
             }
         }
 
@@ -100,16 +102,17 @@
             white-space: nowrap;
             overflow: hidden;
             display: inline-block;
+            text-align: left;
+            max-width: 0;
             animation: 
-                typing 3.5s steps(60, end) forwards,
+                typing 3.5s steps(49, end) forwards,
                 blink 0.7s infinite;
-            word-wrap: break-word;
-            white-space: normal;
+            /* 49 characters in "Operations, Security & Technical Systems Specialist" */
         }
 
         header .subtitle.animated {
             animation: 
-                typing 3.5s steps(60, end) forwards,
+                typing 3.5s steps(49, end) forwards,
                 blink 0.7s infinite;
         }
 
@@ -331,9 +334,6 @@
 
             header .subtitle {
                 font-size: 1.1em;
-                max-width: 100%;
-                word-break: break-word;
-                white-space: normal;
             }
 
             section {
