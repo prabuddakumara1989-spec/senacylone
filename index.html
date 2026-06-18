@@ -3,137 +3,580 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>M.P.S.K. Senavirathna - Portfolio</title>
+    <title>M.P.S.K. Senavirathna | Professional Portfolio</title>
     <style>
         :root {
-            --bg-color: #0d1321;
-            --primary-color: #ffb703;
-            --secondary-color: #ffb703;
-            --text-color: #ffb703;
-            --white-color: #d4af37;
-            --button-border: #ffb703;
-            --cursor-color: #ffb703;
+            /* Deep Space Gold theme */
+            --bg-primary: #0d1321; /* deep midnight blue background */
+            --bg-secondary: #0f1724; /* slightly different midnight tone for cards */
+            --bg-card: #111827; /* card backgrounds */
+            --accent-color: #ffb703; /* premium gold (bright) for accents and glows */
+            --text-main: #d4af37; /* premium gold (warm) for primary text */
+            --text-muted: #e6c68a; /* muted gold for secondary text */
+            --border-color: #4b3a08; /* darker gold/brown for subtle borders */
+            --neon-gold: #ffb703; /* neon glow color replaced with gold */
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
         }
 
-        .header {
+        .container {
+            max-width: 1050px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        header {
             text-align: center;
-        }
-
-        .profile-img-container {
-            position: relative;
-            display: inline-block;
+            padding: 50px 20px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-secondary) 100%);
+            border-radius: 16px;
+            margin-bottom: 35px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border: 1px solid var(--border-color);
         }
 
         .profile-img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 4px solid var(--primary-color);
-            box-shadow: 0 0 10px rgba(255, 183, 3, 0.5), 0 0 20px rgba(255, 183, 3, 0.3), 0 0 30px rgba(255, 183, 3, 0.2);
+            border: 4px solid var(--neon-gold);
+            object-fit: cover;
+            margin-bottom: 20px;
+            box-shadow: 
+                0 0 15px rgba(255, 183, 3, 0.35),
+                0 0 30px rgba(255, 183, 3, 0.25),
+                0 0 45px rgba(255, 183, 3, 0.15),
+                inset 0 0 15px rgba(255, 183, 3, 0.07);
         }
 
-        .name {
-            font-size: 2em;
-            margin: 10px 0;
-            color: var(--primary-color);
+        header h1 {
+            margin: 10px 0 5px 0;
+            font-size: 2.4em;
+            color: var(--text-main);
+            font-weight: 700;
+            letter-spacing: 0.5px;
         }
 
-        .subtitle {
-            font-size: 1em;
-            margin: 10px 0;
-            color: var(--primary-color);
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid var(--cursor-color);
-            animation: typing 3.5s steps(60, end), blink 0.7s step-end infinite;
+        /* Subtitle Container - Responsive with text wrapping */
+        .subtitle-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            min-height: 45px;
+            width: 100%;
             max-width: 100%;
         }
 
+        /* Typing Animation Keyframes - Progressive character reveal */
         @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
         }
 
         @keyframes blink {
-            from, to { border-color: transparent; }
-            50% { border-color: var(--cursor-color); }
+            0%, 49% {
+                border-right-color: var(--accent-color);
+            }
+            50%, 100% {
+                border-right-color: transparent;
+            }
         }
 
-        .details {
-            font-size: 1em;
-            margin: 10px 0;
-            color: var(--white-color);
-        }
-
-        .contact-info {
+        header .subtitle {
+            color: var(--accent-color);
+            font-size: 1.25em;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            text-shadow: 
+                0 0 10px rgba(255, 183, 3, 0.35),
+                0 0 20px rgba(255, 183, 3, 0.25),
+                0 0 30px rgba(255, 183, 3, 0.15);
+            border-right: 3px solid var(--accent-color);
+            overflow: hidden;
+            display: block;
             text-align: center;
+            width: 0;
+            white-space: normal;
+            word-wrap: break-word;
+            animation: 
+                typing 3.5s steps(49, end) forwards,
+                blink 0.7s infinite;
+            /* 49 characters in "Operations, Security & Technical Systems Specialist" */
+            line-height: 1.4;
+        }
+
+        header .subtitle.animated {
+            animation: 
+                typing 3.5s steps(49, end) forwards,
+                blink 0.7s infinite;
+        }
+
+        header .tagline {
+            color: var(--text-muted);
+            font-size: 1.05em;
+            margin: 4px 0;
+        }
+
+        section {
+            background-color: var(--bg-secondary);
+            padding: 40px;
+            margin-bottom: 35px;
+            border-radius: 14px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            border-left: 5px solid var(--accent-color);
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h2 {
+            color: var(--text-main);
+            margin-top: 0;
+            margin-bottom: 25px;
+            font-size: 1.6em;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        blockquote {
+            background-color: var(--bg-card);
+            border-left: 4px solid var(--accent-color);
+            margin: 0;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 1.05em;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+            background-color: var(--bg-card);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        th {
+            background-color: #2b2f36;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+
+        td strong {
+            color: var(--text-main);
+        }
+
+        ul {
+            padding-left: 22px;
+            margin: 0;
+        }
+
+        li {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+        }
+
+        .sub-list {
+            list-style-type: square;
+            margin-top: 8px;
+            padding-left: 25px;
+        }
+
+        .sub-list li {
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        /* Responsive Social and Contact Button Grid */
+        .btn-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 15px;
             margin-top: 20px;
         }
 
         .btn {
-            display: block;
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--button-border);
-            padding: 10px;
-            margin: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px;
+            border-radius: 8px;
             text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
+            font-weight: 600;
+            font-size: 1em;
+            color: var(--text-main);
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
         }
 
         .btn:hover {
-            background-color: var(--primary-color);
-            color: var(--bg-color);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
         }
 
-        .professional-summary {
+        .btn-whatsapp { border-color: #b7d9a0; color: var(--accent-color); }
+        .btn-whatsapp:hover { background-color: var(--accent-color); color: var(--bg-primary); }
+
+        .btn-linkedin { border-color: var(--accent-color); color: var(--accent-color); }
+        .btn-linkedin:hover { background-color: var(--accent-color); color: var(--bg-primary); }
+
+        .btn-fb { border-color: var(--accent-color); color: var(--accent-color); }
+        .btn-fb:hover { background-color: var(--accent-color); color: var(--bg-primary); }
+
+        .btn-youtube { border-color: var(--accent-color); color: var(--accent-color); }
+        .btn-youtube:hover { background-color: var(--accent-color); color: var(--bg-primary); }
+
+        .btn-tiktok { border-color: var(--text-main); color: var(--text-main); background-color: transparent; }
+        .btn-tiktok:hover { background-color: var(--text-main); color: var(--bg-primary); }
+
+        .btn-email { border-color: #e09988; color: var(--accent-color); }
+        .btn-email:hover { background-color: var(--accent-color); color: var(--bg-primary); }
+
+        /* Document and Certificate Photo Gallery Grid */
+        .cert-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
             margin-top: 20px;
-            padding: 20px;
-            border-radius: 5px;
-            background-color: rgba(255, 255, 255, 0.05);
         }
 
-        .summary-header {
-            color: var(--primary-color);
-            font-size: 1.5em;
-            margin-bottom: 10px;
+        .cert-card {
+            background-color: var(--bg-card);
+            padding: 18px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
         }
 
-        .summary-text {
-            color: var(--white-color);
+        .cert-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .cert-img {
+            width: 100%;
+            height: auto;
+            max-height: 360px;
+            object-fit: contain;
+            border-radius: 6px;
+            background-color: #0f1115;
+            margin-bottom: 15px;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            transition: opacity 0.2s;
+        }
+
+        .cert-img:hover {
+            opacity: 0.95;
+        }
+
+        .cert-title {
             font-size: 1em;
+            color: var(--text-main);
+            font-weight: 600;
+            margin: 5px 0 2px 0;
+        }
+
+        .cert-issuer {
+            font-size: 0.85em;
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+
+        footer {
+            text-align: center;
+            padding: 50px 0;
+            color: var(--text-muted);
+            font-size: 0.95em;
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        /* Desktop - Single line or natural wrap */
+        @media (min-width: 769px) {
+            header .subtitle {
+                max-width: 800px;
+                margin: 0 auto;
+            }
+        }
+
+        /* Tablet - Allow natural wrapping */
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 15px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .subtitle-container {
+                min-height: auto;
+                margin-bottom: 12px;
+            }
+
+            header .subtitle {
+                font-size: 1.1em;
+                max-width: 90%;
+                margin: 0 auto;
+            }
+
+            section {
+                padding: 30px 20px;
+            }
+
+            h2 {
+                font-size: 1.4em;
+            }
+        }
+
+        /* Mobile - Multiple lines with natural wrapping */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px 15px;
+            }
+
+            header {
+                padding: 35px 10px;
+                border-radius: 12px;
+                margin-bottom: 25px;
+            }
+
+            header h1 {
+                font-size: 1.6em;
+                margin: 8px 0 3px 0;
+            }
+
+            .subtitle-container {
+                min-height: auto;
+                margin-bottom: 10px;
+                padding: 0 5px;
+            }
+
+            header .subtitle {
+                font-size: 0.95em;
+                border-right-width: 2px;
+                max-width: 100%;
+                padding: 0 5px;
+                text-align: center;
+            }
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 15px;
+            }
+
+            section {
+                padding: 25px 15px;
+                border-radius: 10px;
+                margin-bottom: 25px;
+            }
+
+            h2 {
+                font-size: 1.2em;
+                margin-bottom: 18px;
+                padding-bottom: 10px;
+            }
+
+            .btn-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .cert-gallery {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="profile-img-container">
+
+    <div class="container">
+
+        <!-- HEADER SECTION -->
+        <header>
             <img src="image_06.png" alt="M.P.S.K. Senavirathna" class="profile-img">
-        </div>
-        <h1 class="name">M.P.S.K. Senavirathna</h1>
-        <div class="subtitle-container">
-            <p class="subtitle">Operations, Security & Technical Systems Specialist</p>
-        </div>
-        <p class="details">Sri Lanka Air Force Veteran | 12 Years of Dedicated Service</p>
-        <p class="details">Abu Dhabi, UAE | Resident Visa Holder</p>
+            <h1>M.P.S.K. Senavirathna</h1>
+            <div class="subtitle-container">
+                <div class="subtitle animated">Operations, Security & Technical Systems Specialist</div>
+            </div>
+            <p class="tagline">Sri Lanka Air Force Veteran | 12 Years of Dedicated Service</p>
+            <p class="tagline" style="font-size: 0.95em; color: var(--accent-color); margin-top: 8px;">Abu Dhabi, UAE | Resident Visa Holder</p>
+        </header>
+
+        <!-- PROFESSIONAL SUMMARY -->
+        <section>
+            <h2>💼 Professional Summary</h2>
+            <blockquote>
+                A highly disciplined, technical, and security operations professional with 12 successful years of service in the Regular Force of the Sri Lanka Air Force (SLAF). Expertly skilled [...]
+            </blockquote>
+        </section>
+
+        <!-- CORE COMPETENCIES -->
+        <section>
+            <h2>🛠️ Core Competencies</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Domain Area</th>
+                        <th>Technical Expertise & Capabilities</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>IT & Infrastructure</strong></td>
+                        <td>Computer Hardware Diagnostics, LAN/WAN Networking, Fiber Termination, OS Deployment</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Electronics Maintenance</strong></td>
+                        <td>Component-Level Board Repair, Display Panel Troubleshooting (LCD/LED), SMPS & UPS Systems</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Security & Surveillance</strong></td>
+                        <td>CCTV Network Management, Aviation Security (AVSEC), Access Control & Perimeter Defense</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tactical & Safety Training</strong></td>
+                        <td>Cyber Security Frameworks, Explosive Ordnance Disposal (EOD), Emergency & Building Systems Support</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- BRAND & SOCIAL PORTFOLIO -->
+        <section style="border-left-color: #ff0050;">
+            <h2>🚀 Official Brand & Media Portfolio (Senacylone)</h2>
+            <p>Explore the official media networks managed under my creative and technical electronics brand name, <strong>Senacylone</strong>:</p>
+            <div class="btn-grid">
+                <a href="https://youtube.com/@senacylone?si=-StDYshPjxc4JS94" class="btn btn-youtube" target="_blank">🎵 YouTube Channel</a>
+                <a href="https://www.tiktok.com/@senacylone4i?_r=1&_t=ZS-978mE2YN5t4" class="btn btn-tiktok" target="_blank">📱 TikTok Profile</a>
+                <a href="https://www.facebook.com/share/1E3swHhGu9/?mibextid=wwXIfr" class="btn btn-fb" target="_blank">👥 Facebook Page</a>
+            </div>
+        </section>
+
+        <!-- WORK EXPERIENCE -->
+        <section>
+            <h2>💼 Professional Experience</h2>
+            <ul>
+                <li>
+                    <strong>Sri Lanka Air Force (Regular Force) | Corporal - Electronics & Hardware Maintenance Specialist | 2012 - 2024</strong>
+                    <ul class="sub-list">
+                        <li>Managed critical IT infrastructure and localized networks across 24 operational military air bases, maintaining over 600 systems.</li>
+                        <li>Performed high-volume daily hardware servicing (10-20 units), system configuration, operating system deployment, and structural fiber optic termination.</li>
+                        <li>Executed advanced component-level circuit board restorations, diagnostic isolation, and repair of LCD/LED display panels, SMPS units, and UPS topologies.</li>
+                        <li>Conducted focused training sessions regarding organizational IT guidelines and cybersecurity awareness protocols for active-duty personnel.</li>
+                        <li>Deployed across high-risk sectors executing physical perimeter access management, CCTV surveillance command, and comprehensive Aviation Security (AVSEC) operations.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Intercat Hospitality LLC | Facility Maintenance & Support Specialist | 2024 - Present (Abu Dhabi, UAE)</strong>
+                    <ul class="sub-list">
+                        <li>Coordinating preventive facility maintenance operations, infrastructure checks, and physical plant support routines strictly within corporate safety guidelines.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <!-- VERIFIED EXHIBITS & VERIFICATIONS GALLERY -->
+        <section>
+            <h2>🎓 Verified Credentials & Technical Exhibits</h2>
+            <p>Click on any of the original certificate documents below to open and view the high-resolution legal validation file:</p>
+            
+            <div class="cert-gallery">
+                <!-- Image 9 -->
+                <div class="cert-card">
+                    <img src="image_9.png" alt="SLAF Cyber Security Certificate" class="cert-img" onclick="window.open(this.src)">
+                    <div class="cert-title">Cyber Security Training Course</div>
+                    <div class="cert-issuer">No. 2 IT Wing, SLAF</div>
+                </div>
+
+                <!-- Image 10 -->
+                <div class="cert-card">
+                    <img src="image_10.png" alt="NVQ Level 4 Certificate" class="cert-img" onclick="window.open(this.src)">
+                    <div class="cert-title">Computer Hardware & Network Technician (NVQ Level 4)</div>
+                    <div class="cert-issuer">NAITA / TVEC Sri Lanka</div>
+                </div>
+
+                <!-- Image 11 -->
+                <div class="cert-card">
+                    <img src="image_11.png" alt="Advanced Trade Training Course" class="cert-img" onclick="window.open(this.src)">
+                    <div class="cert-title">Computer Technician Advanced Trade Course (Grade A2)</div>
+                    <div class="cert-issuer">SLAF Trade Training School, Ekala</div>
+                </div>
+
+                <!-- Image 12 -->
+                <div class="cert-card">
+                    <img src="image_12.png" alt="SLAF Electronics Training" class="cert-img" onclick="window.open(this.src)">
+                    <div class="cert-title">Electronics Training Course for Computer Technicians (Stage I)</div>
+                    <div class="cert-issuer">Computer Training Centre, SLAF</div>
+                </div>
+
+                <!-- Image 13 -->
+                <div class="cert-card">
+                    <img src="image_13.png" alt="SLAF Advanced Trade View" class="cert-img" onclick="window.open(this.src)">
+                    <div class="cert-title">Advanced Trade Certification Transcript</div>
+                    <div class="cert-issuer">SLAF TTS Ekala</div>
+                </div>
+
+                <!-- Image 14 -->
+                <div class="cert-card">
+                    <img src="image_14.png" alt="Building Construction Technology" class="cert-img" onclick="window.open(this.src)">
+                    <div class="cert-title">National Certificate in Building Construction Technology</div>
+                    <div class="cert-issuer">Department of Technical Education & Training</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT INFORMATION -->
+        <section>
+            <h2>🌐 Professional Inquiries & Contacts</h2>
+            <p>Please utilize the secure communication vectors below for instantaneous project collaboration or recruitment opportunities:</p>
+            <div class="btn-grid">
+                <a href="https://wa.me/971547022532" class="btn btn-whatsapp" target="_blank">📞 Connect via WhatsApp</a>
+                <a href="https://www.linkedin.com/in/senacylone-senavirathna-mpsk-0aba2b25b?utm_source=share_via&utm_content=profile&utm_medium=member_ios" class="btn btn-linkedin" target="_blank">���[...]</a>
+                <a href="mailto:fsnansb@gmail.com" class="btn btn-email">📧 Send Formal Email</a>
+            </div>
+        </section>
+
     </div>
-    <div class="professional-summary">
-        <h2 class="summary-header">PROFESSIONAL SUMMARY</h2>
-        <p class="summary-text">A highly disciplined, technical, and security operations professional with 12 successful years of service in the Regular Force of the Sri Lanka Air Force (SLAF). Expertly qualified in managing and leading teams in dynamic, high-pressure environments, specializing in operational planning, strategic coordination, security management, and advanced technical systems maintenance. Proven track record in developing and executing operational frameworks that enhance security protocols, optimize organizational efficiency, and ensure mission success. Adept at fostering relationships with diverse stakeholders and driving continuous improvement in complex technical fields.</p>
-    </div>
-    <div class="contact-info">
-        <h2 class="summary-header">CONTACT INFORMATION</h2>
-        <a href="https://www.linkedin.com/in/senacylone-senavirathna-mpsk-0aba2b25b?utm_source=share_via&utm_content=profile&utm_medium=member_ios" class="btn btn-linkedin">Official LinkedIn Profile</a>
-    </div>
+
+    <footer>
+        <p>&copy; 2026 M.P.S.K. Senavirathna | Powered by Senacylone. Hosted on GitHub Pages.</p>
+    </footer>
+
 </body>
 </html>
