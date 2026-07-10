@@ -16,6 +16,7 @@
             --text-muted: #e6c68a; /* muted gold for secondary text */
             --border-color: #4b3a08; /* darker gold/brown for subtle borders */
             --neon-gold: #ffb703; /* neon glow color replaced with gold */
+            --neon-green: #00ff41; /* neon green for competency buttons */
         }
 
         body {
@@ -265,6 +266,92 @@
         .btn-email { border-color: #e09988; color: var(--accent-color); }
         .btn-email:hover { background-color: var(--accent-color); color: var(--bg-primary); }
 
+        /* ============================================
+           NEON GREEN COMPETENCY BUTTONS STYLES
+           ============================================ */
+
+        /* Pulsing glow animation */
+        @keyframes neon-pulse {
+            0%, 100% {
+                box-shadow: 
+                    0 0 10px rgba(0, 255, 65, 0.4),
+                    0 0 20px rgba(0, 255, 65, 0.2),
+                    inset 0 0 10px rgba(0, 255, 65, 0.1);
+                border-color: var(--neon-green);
+            }
+            50% {
+                box-shadow: 
+                    0 0 20px rgba(0, 255, 65, 0.6),
+                    0 0 40px rgba(0, 255, 65, 0.4),
+                    inset 0 0 15px rgba(0, 255, 65, 0.2);
+                border-color: var(--neon-green);
+            }
+        }
+
+        /* Intense hover glow animation */
+        @keyframes neon-hover-glow {
+            0%, 100% {
+                box-shadow: 
+                    0 0 15px rgba(0, 255, 65, 0.6),
+                    0 0 30px rgba(0, 255, 65, 0.5),
+                    0 0 45px rgba(0, 255, 65, 0.3),
+                    inset 0 0 20px rgba(0, 255, 65, 0.25);
+            }
+            50% {
+                box-shadow: 
+                    0 0 25px rgba(0, 255, 65, 0.8),
+                    0 0 50px rgba(0, 255, 65, 0.6),
+                    0 0 70px rgba(0, 255, 65, 0.4),
+                    inset 0 0 25px rgba(0, 255, 65, 0.3);
+            }
+        }
+
+        /* Competency buttons grid */
+        .competency-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        /* Competency button styling */
+        .competency-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px 20px;
+            background-color: var(--bg-card);
+            border: 2px solid var(--neon-green);
+            border-radius: 10px;
+            color: var(--neon-green);
+            font-weight: 700;
+            font-size: 0.95em;
+            text-decoration: none;
+            cursor: pointer;
+            letter-spacing: 0.4px;
+            transition: all 0.4s ease;
+            animation: neon-pulse 2.5s ease-in-out infinite;
+            text-align: center;
+            min-height: 60px;
+            box-sizing: border-box;
+        }
+
+        /* Competency button hover state */
+        .competency-btn:hover {
+            animation: neon-hover-glow 1.2s ease-in-out infinite;
+            transform: translateY(-4px);
+            background-color: rgba(0, 255, 65, 0.08);
+            color: var(--neon-green);
+            font-weight: 700;
+            letter-spacing: 0.6px;
+        }
+
+        /* Competency button active/click state */
+        .competency-btn:active {
+            transform: translateY(-2px);
+            animation: neon-hover-glow 0.6s ease-in-out infinite;
+        }
+
         /* Document and Certificate Photo Gallery Grid */
         .cert-gallery {
             display: grid;
@@ -336,6 +423,10 @@
                 max-width: 800px;
                 margin: 0 auto;
             }
+
+            .competency-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         /* Tablet - Allow natural wrapping */
@@ -365,6 +456,17 @@
 
             h2 {
                 font-size: 1.4em;
+            }
+
+            .competency-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
+            }
+
+            .competency-btn {
+                font-size: 0.9em;
+                padding: 16px 15px;
+                min-height: 55px;
             }
         }
 
@@ -426,6 +528,17 @@
                 grid-template-columns: 1fr;
                 gap: 18px;
             }
+
+            .competency-grid {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+
+            .competency-btn {
+                font-size: 0.9em;
+                padding: 15px 12px;
+                min-height: 52px;
+            }
         }
     </style>
 </head>
@@ -481,6 +594,25 @@
                     </tr>
                 </tbody>
             </table>
+
+            <!-- INTERACTIVE COMPETENCY BUTTONS -->
+            <div style="margin-top: 30px; padding-top: 20px; border-top: 2px solid var(--border-color);">
+                <p style="color: var(--text-muted); font-size: 0.95em; margin-bottom: 18px; text-transform: uppercase; letter-spacing: 0.3px;">Explore Competency Areas:</p>
+                <div class="competency-grid">
+                    <button class="competency-btn" onclick="alert('IT & Infrastructure: Computer Hardware Diagnostics, LAN/WAN Networking, Fiber Termination, OS Deployment')">
+                        💻 IT & Infrastructure
+                    </button>
+                    <button class="competency-btn" onclick="alert('Electronics Maintenance: Component-Level Board Repair, Display Panel Troubleshooting (LCD/LED), SMPS & UPS Systems')">
+                        ⚡ Electronics Maintenance
+                    </button>
+                    <button class="competency-btn" onclick="alert('Security & Surveillance: CCTV Network Management, Aviation Security (AVSEC), Access Control & Perimeter Defense')">
+                        🔒 Security & Surveillance
+                    </button>
+                    <button class="competency-btn" onclick="alert('Tactical & Safety Training: Cyber Security Frameworks, Explosive Ordnance Disposal (EOD), Emergency & Building Systems Support')">
+                        🎖️ Tactical & Safety Training
+                    </button>
+                </div>
+            </div>
         </section>
 
         <!-- BRAND & SOCIAL PORTFOLIO -->
