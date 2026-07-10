@@ -11,25 +11,51 @@ class ImageCarousel {
         this.nextBtn = document.querySelector('.carousel-btn-next');
         this.indicators = document.querySelectorAll('.indicator');
         
+        // Autoplay settings
+        this.autoplayInterval = 5000; // 5 seconds
+        this.autoplayTimer = null;
+        
         this.init();
     }
 
     init() {
         // Event listeners for navigation buttons
         if (this.prevBtn) {
-            this.prevBtn.addEventListener('click', () => this.prevSlide());
+            this.prevBtn.addEventListener('click', () => {
+                this.prevSlide();
+                this.resetAutoplay();
+            });
         }
         if (this.nextBtn) {
-            this.nextBtn.addEventListener('click', () => this.nextSlide());
+            this.nextBtn.addEventListener('click', () => {
+                this.nextSlide();
+                this.resetAutoplay();
+            });
         }
 
         // Event listeners for indicator dots
         this.indicators.forEach((indicator, index) => {
-            indicator.addEventListener('click', () => this.goToSlide(index));
+            indicator.addEventListener('click', () => {
+                this.goToSlide(index);
+                this.resetAutoplay();
+            });
         });
 
         // Keyboard navigation
-        document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+        document.addEventListener('keydown', (e) => {
+            this.handleKeyboard(e);
+            this.resetAutoplay();
+        });
+
+        // Start autoplay
+        this.startAutoplay();
+
+        // Pause autoplay on hover
+        const carouselWrapper = document.querySelector('.carousel-wrapper');
+        if (carouselWrapper) {
+            carouselWrapper.addEventListener('mouseenter', () => this.stopAutoplay());
+            carouselWrapper.addEventListener('mouseleave', () => this.startAutoplay());
+        }
     }
 
     updateCarousel() {
@@ -68,6 +94,24 @@ class ImageCarousel {
         } else if (e.key === 'ArrowRight') {
             this.nextSlide();
         }
+    }
+
+    startAutoplay() {
+        this.autoplayTimer = setInterval(() => {
+            this.nextSlide();
+        }, this.autoplayInterval);
+    }
+
+    stopAutoplay() {
+        if (this.autoplayTimer) {
+            clearInterval(this.autoplayTimer);
+            this.autoplayTimer = null;
+        }
+    }
+
+    resetAutoplay() {
+        this.stopAutoplay();
+        this.startAutoplay();
     }
 }
 
