@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>M.P.S.K. Senavirathna | Professional Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="carousel-styles.css">
     <style>
         :root {
             /* Deep Space Gold theme */
@@ -626,6 +627,57 @@
             </div>
         </section>
 
+        <!-- PROFESSIONAL PORTFOLIO GALLERY CAROUSEL -->
+        <section>
+            <h2>🖼️ Professional Portfolio Gallery</h2>
+            <p>Browse through my technical work and professional environments:</p>
+            
+            <!-- Carousel Container -->
+            <div class="carousel-wrapper">
+                <div class="carousel-container">
+                    <div class="carousel-track">
+                        <!-- Slide 1 -->
+                        <div class="carousel-slide">
+                            <img src="image_1.png" alt="Professional Portfolio 1" class="carousel-img">
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-slide">
+                            <img src="image_2.png" alt="Professional Portfolio 2" class="carousel-img">
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="carousel-slide">
+                            <img src="image_3.png" alt="Professional Portfolio 3" class="carousel-img">
+                        </div>
+                        <!-- Slide 4 -->
+                        <div class="carousel-slide">
+                            <img src="image_4.png" alt="Professional Portfolio 4" class="carousel-img">
+                        </div>
+                        <!-- Slide 5 -->
+                        <div class="carousel-slide">
+                            <img src="image_5.png" alt="Professional Portfolio 5" class="carousel-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button class="carousel-btn carousel-btn-prev" aria-label="Previous slide">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn carousel-btn-next" aria-label="Next slide">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators">
+                    <button class="indicator active" aria-label="Go to slide 1" data-slide="0"></button>
+                    <button class="indicator" aria-label="Go to slide 2" data-slide="1"></button>
+                    <button class="indicator" aria-label="Go to slide 3" data-slide="2"></button>
+                    <button class="indicator" aria-label="Go to slide 4" data-slide="3"></button>
+                    <button class="indicator" aria-label="Go to slide 5" data-slide="4"></button>
+                </div>
+            </div>
+        </section>
+
         <!-- WORK EXPERIENCE -->
         <section>
             <h2>💼 Professional Experience</h2>
@@ -715,6 +767,9 @@
     <footer>
         <p>&copy; 2026 M.P.S.K. Senavirathna | Powered by Senacylone. Hosted on GitHub Pages.</p>
     </footer>
+
+    <!-- Load Carousel JavaScript -->
+    <script src="carousel-script.js"></script>
 
 </body>
 </html>
