@@ -235,8 +235,10 @@
             font-weight: 600;
             font-size: 1em;
             color: var(--text-main);
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
+            background: linear-gradient(135deg, rgba(255, 183, 3, 0.1) 0%, rgba(13, 19, 33, 0.05) 100%);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(75, 58, 8, 0.6);
             transition: all 0.3s ease;
         }
 
@@ -246,26 +248,71 @@
 
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            box-shadow: 0 8px 25px rgba(255, 183, 3, 0.25);
+            background: linear-gradient(135deg, rgba(255, 183, 3, 0.15) 0%, rgba(13, 19, 33, 0.08) 100%);
+            border-color: var(--accent-color);
         }
 
-        .btn-whatsapp { border-color: #b7d9a0; color: var(--accent-color); }
-        .btn-whatsapp:hover { background-color: var(--accent-color); color: var(--bg-primary); }
+        .btn-whatsapp { 
+            border-color: rgba(183, 217, 160, 0.6); 
+            color: var(--accent-color); 
+        }
+        .btn-whatsapp:hover { 
+            background: linear-gradient(135deg, rgba(183, 217, 160, 0.2) 0%, rgba(13, 19, 33, 0.1) 100%);
+            color: var(--accent-color);
+            border-color: #b7d9a0;
+        }
 
-        .btn-linkedin { border-color: var(--accent-color); color: var(--accent-color); }
-        .btn-linkedin:hover { background-color: var(--accent-color); color: var(--bg-primary); }
+        .btn-linkedin { 
+            border-color: rgba(255, 183, 3, 0.6); 
+            color: var(--accent-color); 
+        }
+        .btn-linkedin:hover { 
+            background: linear-gradient(135deg, rgba(255, 183, 3, 0.2) 0%, rgba(13, 19, 33, 0.1) 100%);
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
 
-        .btn-fb { border-color: var(--accent-color); color: var(--accent-color); }
-        .btn-fb:hover { background-color: var(--accent-color); color: var(--bg-primary); }
+        .btn-fb { 
+            border-color: rgba(255, 183, 3, 0.6); 
+            color: var(--accent-color); 
+        }
+        .btn-fb:hover { 
+            background: linear-gradient(135deg, rgba(255, 183, 3, 0.2) 0%, rgba(13, 19, 33, 0.1) 100%);
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
 
-        .btn-youtube { border-color: var(--accent-color); color: var(--accent-color); }
-        .btn-youtube:hover { background-color: var(--accent-color); color: var(--bg-primary); }
+        .btn-youtube { 
+            border-color: rgba(255, 183, 3, 0.6); 
+            color: var(--accent-color); 
+        }
+        .btn-youtube:hover { 
+            background: linear-gradient(135deg, rgba(255, 183, 3, 0.2) 0%, rgba(13, 19, 33, 0.1) 100%);
+            color: var(--accent-color);
+            border-color: var(--accent-color);
+        }
 
-        .btn-tiktok { border-color: var(--text-main); color: var(--text-main); background-color: transparent; }
-        .btn-tiktok:hover { background-color: var(--text-main); color: var(--bg-primary); }
+        .btn-tiktok { 
+            border-color: rgba(212, 175, 55, 0.6); 
+            color: var(--text-main); 
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(13, 19, 33, 0.02) 100%);
+        }
+        .btn-tiktok:hover { 
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(13, 19, 33, 0.08) 100%);
+            color: var(--text-main);
+            border-color: var(--text-main);
+        }
 
-        .btn-email { border-color: #e09988; color: var(--accent-color); }
-        .btn-email:hover { background-color: var(--accent-color); color: var(--bg-primary); }
+        .btn-email { 
+            border-color: rgba(224, 153, 136, 0.6); 
+            color: var(--accent-color); 
+        }
+        .btn-email:hover { 
+            background: linear-gradient(135deg, rgba(224, 153, 136, 0.15) 0%, rgba(13, 19, 33, 0.1) 100%);
+            color: var(--accent-color);
+            border-color: #e09988;
+        }
 
         /* ============================================
            NEON GREEN COMPETENCY BUTTONS STYLES
