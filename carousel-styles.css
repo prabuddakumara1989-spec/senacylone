@@ -10,7 +10,7 @@
     margin: 0 auto;
     overflow: hidden;
     border-radius: 10px;
-    background-color: var(--bg-card);
+    background-color: transparent;
     border: 1px solid var(--border-color);
 }
 
@@ -19,7 +19,7 @@
     width: 100%;
     overflow: hidden;
     border-radius: 10px;
-    background-color: var(--bg-card);
+    background-color: transparent;
 }
 
 /* Carousel Track - holds all slides */
@@ -37,7 +37,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--bg-card);
+    background-color: transparent;
     padding: 20px;
     box-sizing: border-box;
 }
@@ -50,7 +50,19 @@
     object-fit: contain;
     border-radius: 8px;
     display: block;
-    background-color: #0f1115;
+    background: linear-gradient(135deg, rgba(15, 23, 36, 0.4) 0%, rgba(13, 19, 33, 0.3) 100%);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    margin-bottom: 15px;
+    cursor: pointer;
+    border: 1px solid rgba(75, 58, 8, 0.5);
+    transition: all 0.3s ease;
+}
+
+.carousel-img:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(255, 183, 3, 0.2);
+    transform: scale(1.02);
 }
 
 /* Carousel Navigation Buttons */
@@ -72,6 +84,8 @@
     transition: all 0.3s ease;
     z-index: 10;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .carousel-btn:hover {
@@ -100,8 +114,10 @@
     justify-content: center;
     gap: 12px;
     padding: 20px;
-    background-color: rgba(15, 23, 36, 0.8);
-    border-top: 1px solid var(--border-color);
+    background: linear-gradient(180deg, rgba(15, 23, 36, 0.3) 0%, rgba(13, 19, 33, 0.2) 100%);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(75, 58, 8, 0.5);
 }
 
 /* Individual Indicator Dots */
@@ -109,22 +125,26 @@
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: var(--border-color);
+    background-color: rgba(75, 58, 8, 0.5);
     border: 2px solid var(--text-muted);
     cursor: pointer;
     transition: all 0.3s ease;
     padding: 0;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
 }
 
 .indicator:hover {
     background-color: var(--text-muted);
     transform: scale(1.15);
+    box-shadow: 0 0 8px rgba(230, 198, 138, 0.4);
 }
 
 .indicator.active {
     background-color: var(--accent-color);
     border-color: var(--accent-color);
-    box-shadow: 0 0 10px rgba(255, 183, 3, 0.5);
+    box-shadow: 0 0 15px rgba(255, 183, 3, 0.6);
+    transform: scale(1.1);
 }
 
 /* ============================================
